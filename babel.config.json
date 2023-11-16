@@ -1,21 +1,61 @@
 {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "entry",
-          "corejs": "3.33",
-          "targets":{
-            "safari":"5"
-          }
-        }
-      ]     
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        // "targets": {
+        //   "node": "current"
+        // },
+        "useBuiltIns": "entry",
+        "corejs": "3.33"
+      }
     ],
-    "plugins": [
-      //"@babel/plugin-transform-flow-strip-types",
-      //"@babel/plugin-proposal-class-properties",
-      //"@babel/plugin-transform-regenerator",
-      //"@babel/plugin-transform-async-to-generator",
-      //"@babel/plugin-transform-runtime"
-    ]
+    [
+      "@babel/preset-react",
+      {
+        "throwIfNamespace": false
+      }
+    ] 
+  ],
+  "plugins": [
+    // "@babel/plugin-syntax-async-generators",
+    // //"@babel/plugin-transform-flow-strip-types",
+    // //"@babel/plugin-proposal-class-properties",
+    // // "@babel/plugin-transform-regenerator",
+    // ["@babel/plugin-transform-runtime", {
+    //   "absoluteRuntime": false,
+    //   "corejs": false,
+    //   "helpers": false,
+    //   "regenerator": true
+    // }],
+    //  ["@babel/plugin-transform-async-to-generator",
+    //  {
+    //    "module": "bluebird",
+    //    "method": "coroutine"
+    //  }]
+    // // "@babel/plugin-proposal-async-generator-functions",
+    // // "babel-plugin-transform-async-to-module-method",
+    // // ["@babel/plugin-transform-modules-commonjs",{
+    // //   "allowTopLevelThis": true
+    // // }],
+    // // [
+    // //   "babel-plugin-transform-rename-import",
+    // //   {
+    // //     "original": "rxcore",
+    // //     "replacement": "../src/core"
+    // //   }
+    // // ]
+  ],
+  "compact": true,
+  "ignore": [
+    "babel.config.js",
+    "dist/noteconverter_v15/assets",
+    "dist/noteconverter_v15/scripts.js",
+    "dist/noteconverter_v15/scripts.js.map",
+    "ignore-this",
+    "node_modules"
+  ]//,
+  // "assumptions": {
+  //   "enumerableModuleMeta": true
+  // }
 }

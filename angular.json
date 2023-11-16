@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "testApp": {
+    "noteconverter_v15": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -19,13 +19,22 @@
           "options": {
             "customWebpackConfig": {
               "path": "./webpack.custom.js"
-            },
-            "indexTransform": "./index-html-transform.js",
-            "outputPath": "dist/test-app",
+           },
+           "allowedCommonJsDependencies":[
+              "lodash"
+           ],
+           "indexTransform": "./index-html-transform.js",
+            "outputPath": "dist/noteconverter_v15",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "regenerator-runtime/runtime",
+              "promise-polyfill/src/polyfill",
+              "classlist.js",
+              "web-animations-js",
+              "zone.js/dist/zone",
+              "intl",
+              "whatwg-fetch"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "less",
@@ -43,23 +52,29 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "200kb",
+                  "maximumError": "400kb"
                 }
               ],
-              "outputHashing": "all"
+              "aot":true,
+              "optimization":true,
+              "sourceMap":false,
+              "namedChunks":false,
+              "vendorChunk":false,
+              "buildOptimizer":true,
+              "outputHashing": "none"
             },
             "development": {
               "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
+              "optimization": true,
+              "vendorChunk": false,
               "extractLicenses": false,
-              "sourceMap": true,
+              "sourceMap": false,
               "namedChunks": true
             }
           },
@@ -69,10 +84,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "testApp:build:production"
+              "browserTarget": "noteconverter_v15:build:production"
             },
             "development": {
-              "browserTarget": "testApp:build:development"
+              "browserTarget": "noteconverter_v15:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,15 +95,20 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "testApp:build"
+            "browserTarget": "noteconverter_v15:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
-              "zone.js",
-              "zone.js/testing"
+              "regenerator-runtime/runtime",
+              "promise-polyfill/src/polyfill",
+              "classlist.js",
+              "web-animations-js",
+              "zone.js/dist/zone",
+              "intl",
+              "whatwg-fetch"
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "less",
