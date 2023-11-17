@@ -17,6 +17,7 @@
       }
     ] 
   ],
+  "sourceMaps": "inline",
   "plugins": [
     // "@babel/plugin-syntax-async-generators",
     // //"@babel/plugin-transform-flow-strip-types",
@@ -54,7 +55,8 @@
     "dist/noteconverter_v15/scripts.js.map",
     "ignore-this",
     "node_modules"
-  ]//,
+  ],
+  "sourceType": "script"
   // "assumptions": {
   //   "enumerableModuleMeta": true
   // }

@@ -28,24 +28,25 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
+              "core-js",
               "regenerator-runtime/runtime",
-              "promise-polyfill/src/polyfill",
-              "classlist.js",
-              "web-animations-js",
-              "zone.js/dist/zone",
-              "intl",
-              "whatwg-fetch"
+              "zone.js/dist/zone"
             ],
+            "watch": false,
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "less",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets/images/XeroxNoteConverter.png",
+              "src/assets/",
+              "src/_redirects",
+              "src/web.config"
             ],
             "styles": [
               "src/styles.less"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/iscroll-probe.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -61,6 +62,12 @@
                   "maximumError": "400kb"
                 }
               ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "aot":true,
               "optimization":true,
               "sourceMap":false,
@@ -70,15 +77,15 @@
               "outputHashing": "none"
             },
             "development": {
-              "buildOptimizer": false,
-              "optimization": true,
-              "vendorChunk": false,
+              "optimization":true,
               "extractLicenses": false,
-              "sourceMap": false,
-              "namedChunks": true
+              "sourceMap":false,
+              "namedChunks":false,
+              "vendorChunk":true,
+              "buildOptimizer":true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -103,18 +110,11 @@
           "options": {
             "polyfills": [
               "regenerator-runtime/runtime",
-              "promise-polyfill/src/polyfill",
-              "classlist.js",
-              "web-animations-js",
-              "zone.js/dist/zone",
-              "intl",
-              "whatwg-fetch"
+              "zone.js/dist/zone"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "less",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+             
             ],
             "styles": [
               "src/styles.less"
