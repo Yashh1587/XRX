@@ -69,7 +69,7 @@ export class PrivacyPolicyComponent implements OnInit {
             this.progressAlert.close();
           },
           error: (error) => {
-            this.logService.trackTrace("inside privacy policy error" + error);
+            this.logService.logTrace("inside privacy policy error" + error);
             this.showVersion = 'v1.0'; //this.strings.VERSION
             this.progressAlert.close();
             //this.modalService.showGeneralError(error);

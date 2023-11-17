@@ -25,7 +25,6 @@ export class ResourcestringService {
     try { 
         var regex = /(\w+)\-?/g; 
         const locale = regex.exec(window.navigator.language || window.navigator.language)[1] || 'en-US';
-        console.log("Environment Name: " +this.env.name);
         const headers = new HttpHeaders({
         'Authorization': 'Bearer ' + this.env.apiKey
         });

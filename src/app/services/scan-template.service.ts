@@ -194,7 +194,7 @@ export class ScanTemplateService {
     // Assign properties from incoming options
   
     // Destination
-  //this.logService.trackTrace('scanTemplate => featureValues.jobid:' + featureValues.jobid);
+    this.logService.logTrace('scanTemplate => featureValues.jobid:' + featureValues.jobid);
     var returnUrl = this.apiService.getPrefix() + scriptLocation + '?' + 'jobId=' + featureValues.jobid;
   
     this.destSection.details.XrxHTTPScriptLocation.value = returnUrl;

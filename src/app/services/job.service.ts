@@ -39,14 +39,14 @@ export class JobService {
         emailAddress: featureValues.email,
         timeZoneOffsetMinutes: new Date().getTimezoneOffset(),
         filename: parsedFilename,
-        localizedLanguage: LocalizedLanguage, // Need to define this variable
-        appId: this.env.appId, //this.configurationService.getSetting('appId'),
-        deviceId: AppModule.deviceId,//this.configurationService.getSetting('deviceId'),
+        localizedLanguage: LocalizedLanguage,
+        appId: this.env.appId, 
+        deviceId: AppModule.deviceId,
         orientation: featureValues.orientation,
         format: featureValues.fileFormat.toUpperCase(),
         archivalFormat:''
       };
-      //this.logService.trackTrace('Device Id:' + job.deviceId.toString());
+      //this.logService.logTrace('Device Id:' + job.deviceId.toString());
       
       if (featureValues.fileFormat === "pdf") {
         job.archivalFormat = (featureValues.archivalFormat ? 'PDF/A-1b' : 'PDF');
@@ -55,16 +55,16 @@ export class JobService {
       const request = {
         job: job
       };
-      //this.apiService.apiUrl
+  
       return this.http.post(this.env.wncAddress+("/api/v1/job"), request, config).toPromise()
         .then((result: any) => {
-          //this.logService.trackTrace('jobService -> registerJob -> success -> result.data:' + result);
+          this.logService.logTrace('jobService -> registerJob -> success -> result.data:' + result.objToString);
           return result;
         })
         .catch((error: any) => {
-          this.logService.trackTrace('jobService -> registerJob -> ERROR...');
+          this.logService.logException('jobService -> registerJob -> ERROR...');
           if (error != null && error.data != null && error.data.ExceptionMessage != null) {
-            this.logService.trackTrace('jobService -> registerJob -> ERROR:' + error.data.ExceptionMessage);
+            this.logService.logException('jobService -> registerJob -> ERROR:' + error.data.ExceptionMessage.toString);
           }
   
           if (error && error.status == 401) {
@@ -76,7 +76,7 @@ export class JobService {
       catch(ExceptionMessage)
 
       {
-        this.logService.trackException(ExceptionMessage);
+        this.logService.logException(ExceptionMessage.objToString);
         return  null;
       }
 

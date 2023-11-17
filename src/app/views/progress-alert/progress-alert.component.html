@@ -6,9 +6,9 @@
                 <img  src="../../../assets/Content/Images/spin.gif" />           
             </div>
             
-            <h3 *ngIf="data.title" class="alert-title" xas-string="">{{data.title}}</h3>
+            <h3 *ngIf="data.title" class="alert-title" [xasString]="data.title"></h3>
             <p *ngIf="data.message">
-                <span class="alert-additional-info" xas-string="">{{data.message}}</span>
+                <span class="alert-additional-info" [xasString]="data.message"></span>
             </p>
         </div>
     </div>

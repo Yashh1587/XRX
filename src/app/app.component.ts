@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
-import { ResourcestringService } from '../app/services/resourcestring.service';
-import { ModalService } from '../app/services/modal.service';
+import {ResourcestringService} from '../app/services/resourcestring.service';
+import {ModalService} from '../app/services/modal.service';
 
 
 declare const _: any;
@@ -13,29 +13,40 @@ declare const _: any;
   styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
+
   constructor(
-
-    private router: Router,
-    private resourceStringService: ResourcestringService,
+    
+    private router : Router,
+    private resourceStringService : ResourcestringService,
     private modalService: ModalService,
-  ) {
-  }
-
-
-  ngOnInit() {
-    this.routeScanScreen();
-  }
-  async routeScanScreen() {
-    this.modalService.showProgressAlert('', '');
-    try {
-      console.log("before async")
-      await this.resourceStringService.loadResources();
-      console.log("after async")
-      this.router.navigate(['scanScreen']);
-       this.modalService.closeAllModals();
+    ) 
+    { 
     }
-    catch (error) {
 
-    }
+  
+    ngOnInit() { 
+      this.routeScanScreen(); 
+    } 
+    async routeScanScreen() {
+      this.modalService.showProgressAlert('','');
+      try {
+     
+        await this.resourceStringService.loadResources();
+
+        //await new Promise(resolve => setTimeout(resolve, 1000));
+
+        this.router.navigate(['scanScreen']);
+        
+      } catch (error) {
+   
+      } finally {
+        this.modalService.closeAllModals();
+      }
+    } 
+       
   }
-}
+  
+
+  
+
+

@@ -9,7 +9,7 @@
 
     <div class="header-right">
       <button type="button" class="btn btn-medium btn-glyph-label xrx-scan" (click)="scan()" [disabled]="!noteConvertorForm?.valid ||
-                inputField.nativeElement.value==''">
+                inputField?.nativeElement?.value==''">
         <span>{{this.scanTitle}}</span>
       </button>
     </div>
@@ -17,7 +17,7 @@
     <div class="header-middle text-large">
       <div class="header-title-container text-large">
         <div class="header-title text-large">
-          <span>{{this.xeroxTitle}}</span>
+          <span>Note Converter</span>
         </div>
       </div>
     </div>
@@ -115,12 +115,12 @@
                 </div>
 
                 <div class="text-container">
-                  <span class="left-text" xasString={{this.selectedType.title}}></span>
+                  <span class="left-text" [xasString]=this.selectedType.title></span>
                   <span ng-if="feature.name=='originalSize'" class="glyph-container wnc-app">
                     <span ng-class="feature.selectedOption.glyph"></span>
                   </span>
 
-                  <span class="right-text" xasString={{this.selectedTypeOptions.title}}></span>
+                  <span class="right-text" [xasString]=this.selectedTypeOptions.title></span>
                 </div>
               </button>
 
@@ -137,8 +137,11 @@
                 <div class="text-container">
                   <span class="left-text" xasString={{this.selectedSize.title}}></span>
 
-                  <span class="right-text" *ngIf="this.resourceString[selectedSizeOptions.title] != null">{{this.resourceString[selectedSizeOptions.title]}}</span>
-                  <span class="right-text" *ngIf="this.resourceString[selectedSizeOptions.title] == null"> {{ this.selectedSizeOptions.title}}<span *ngIf="this.selectedSizeOptions.glyph" ngClass="{{this.selectedSizeOptions.glyph}}"> </span></span>
+                  <span class="right-text" *ngIf="this.selectedSizeOptions.title == 'SDE_AUTO_DETECT'" xasString={{this.selectedSizeOptions.title}}></span>
+                  <span class="right-text" *ngIf="this.selectedSizeOptions.title != 'SDE_AUTO_DETECT'">
+                    {{this.selectedSizeOptions.title}}
+                    <span *ngIf="this.selectedSizeOptions.glyph" ngClass="{{this.selectedSizeOptions.glyph}}"> </span>
+                  </span>
                 </div>
               </button>
 

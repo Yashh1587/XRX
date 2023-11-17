@@ -53,7 +53,6 @@ import { NgScrollableDirective } from './Directives/ng-scrollable.directive'
 import { TextFieldDirective } from './Directives/text-field.directive';
 import { XasStringDirective } from '../app/Directives/xas-string.directive';
 import { XasPlaceholderDirective } from './Directives/xas-placeholder.directive';
-import { XasStopEventDirective } from './Directives/xas-stop-event.directive';
 
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -75,8 +74,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     TextFieldDirective,
     XasStringDirective,
     EditableFieldDirective,
-    XasPlaceholderDirective,
-    XasStopEventDirective
+    XasPlaceholderDirective
   ],
   imports: [
     BrowserModule,

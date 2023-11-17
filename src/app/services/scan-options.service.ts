@@ -149,7 +149,6 @@ export class ScanOptionsService {
 
   constructor(private logService: LogService)
   {
-    debugger;
     this.setDefaults(this.fileFormat);
     this.scanFeatures.forEach((feature) => {
       this.setDefaults(feature);

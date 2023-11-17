@@ -170,7 +170,6 @@ declare const IScroll: any;
     }, 500)
 
     if (element.scrollHeight !== 0) {
-      //console.log("element.scrollHeight :" + element.scrollHeight);
       this.shadowDiv.classList.add('shadow-bottom');
     }
     // element.appendChild(this.shadowDiv);
@@ -262,7 +261,6 @@ declare const IScroll: any;
       this.scroller.on('scrollStart', () => {
     
         if (this.scroller.maxScrollY !== 0) {
-          //console.log("this.scroller.maxScrollY :" + this.scroller.maxScrollY);
           this.shadowDiv!.classList.add('shadow-bottom');
           this.shadowDiv!.classList.add('shadow-top');
         }
