@@ -89,7 +89,7 @@ export class ModalService {
         left: leftPosition,
         right: rightPosition,
       },
-      //scrollStrategy: new NoopScrollStrategy()
+      scrollStrategy: new NoopScrollStrategy()
     });
    
   }
