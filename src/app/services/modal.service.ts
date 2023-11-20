@@ -218,7 +218,7 @@ export class ModalService {
       data :{'title': title,'message':message},
       height: '100vh',
       width: '100vw',
-    //scrollStrategy: new NoopScrollStrategy()
+    scrollStrategy: new NoopScrollStrategy()
     });
 
   }
@@ -262,7 +262,7 @@ export class ModalService {
       data : data,
       height: '98%',
       width: '100vw',
-      //scrollStrategy: new NoopScrollStrategy()
+      scrollStrategy: new NoopScrollStrategy()
       
     });
   }
