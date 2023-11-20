@@ -84,7 +84,7 @@ export class ModalService {
       data: { closeBtnName: 'Close' },
       hasBackdrop: false,
       disableClose: true,
-      //minWidth: '100vw',
+      minWidth: '100vw',
       position: {
         left: leftPosition,
         right: rightPosition,
