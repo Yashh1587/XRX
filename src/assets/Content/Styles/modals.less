@@ -49,7 +49,8 @@
 }
 
 // Controls modal width
-.modal-dialog,.mat-dialog-container {
+.modal-dialog,
+.mat-dialog-container {
     width: 100%;
 
     @media (min-width: 1024px) {
@@ -141,7 +142,9 @@
                 font-weight: bold;
             }
 
-            h1, h2, h3 {
+            h1,
+            h2,
+            h3 {
                 color: white !important;
             }
 
@@ -212,5 +215,15 @@
             width: 68px;
             margin: 0px;
         }
+    }
+}
+
+.mdc-dialog__surface {
+    @media (min-width: 1024px) {
+        overflow: hidden !important;
+        max-height: 100vh !important;
+        min-height: 100vh !important;
+        min-width: 90vw !important;
+        max-width: 92vw !important;
     }
 }
