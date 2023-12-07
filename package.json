@@ -5,13 +5,12 @@
     "npm-i": "npm i",
     "start": "ng serve -o --port 7890",
     "build": "ng build",
-    "postbuild": "babel dist/noteconverter_v15 -d dist/noteconverter_v15",
+    "postbuild": "babel dist/noteconverter_v15 -d dist/noteconverter_v15 --out-file-extension .es5.js",
     "build prod": "ng build --configuration=production",
     "dev": "webpack --watch --mode=development"
   },
   "private": true,
   "dependencies": {
-    "@angular-builders/custom-webpack": "^15.0.0",
     "@angular-eslint/eslint-plugin": "^17.0.1",
     "@angular/animations": "^15.2.0",
     "@angular/cdk": "^15.2.0",

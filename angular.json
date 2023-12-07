@@ -15,15 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack.custom.js"
-           },
            "allowedCommonJsDependencies":[
               "lodash"
            ],
-           "indexTransform": "./index-html-transform.js",
             "outputPath": "dist/noteconverter_v15",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -51,6 +47,10 @@
           },
           "configurations": {
             "production": {
+              "index":{
+                "input": "./src/index.prod.html",
+                "output": "index.html"
+              },
               "budgets": [
                 {
                   "type": "initial",
@@ -63,12 +63,6 @@
                   "maximumError": "400kb"
                 }
               ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "aot":true,
               "optimization":true,
               "sourceMap":false,
@@ -78,6 +72,10 @@
               "outputHashing": "none"
             },
             "development": {
+              "index":{
+                "input": "./src/index.prod.html",
+                "output": "index.html"
+              },
               "optimization":true,
               "extractLicenses": false,
               "sourceMap":false,
@@ -86,10 +84,10 @@
               "buildOptimizer":true
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
         "serve": {
-          "builder":  "@angular-builders/custom-webpack:dev-server",
+          "builder":  "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "noteconverter_v15:build:production"
@@ -117,7 +115,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-             
+
             ],
             "styles": [
               "src/styles.less"
